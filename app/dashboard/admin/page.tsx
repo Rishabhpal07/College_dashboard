@@ -1,14 +1,19 @@
-import { UpcomingClasses } from '@/components/UpcomingClasses'
-import { WeeklyTimetable } from '@/components/WeeklyTimetable'
-import React from 'react'
+"use client";
+import TimetableForm from "@/components/timetable/TableForm";
+import TimetableList from "@/components/timetable/TimetableList";
+import { WeeklyTimetable } from "@/components/WeeklyTimetable";
+import { useState } from "react";
 
-function page() {
+export default function AdminDashboard() {
+  const [editId, setEditId] = useState<string | null>(null);
+
   return (
-    <div>
-      <UpcomingClasses/>
+    <div className="p-6">
+      <h1 className="text-2xl font-bold mb-6">Admin Timetable Management</h1>
+
+      <TimetableForm editId={editId || undefined} onClose={() => setEditId(null)} />
+      <TimetableList allowEdit />
       <WeeklyTimetable/>
     </div>
-  )
+  );
 }
-
-export default page

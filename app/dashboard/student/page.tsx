@@ -1,22 +1,15 @@
-'use client'
-import { UpcomingClasses } from '@/components/UpcomingClasses';
-import { WeeklyTimetable } from '@/components/WeeklyTimetable';
-import { signOut, useSession } from 'next-auth/react';
-import React from 'react'
+"use client";
 
-function page() {
-  const {data:session} = useSession();
+import TimetableList from "@/components/timetable/TimetableList";
+import { UpcomingClasses } from "@/components/UpcomingClasses";
+import { WeeklyTimetable } from "@/components/WeeklyTimetable";
 
+export default function StudentDashboard() {
   return (
-    <div>
-      student
-      <button onClick={()=> signOut()} className="bg-slate-950 text-white rounded text-lg w-auto px-6 py-3 uppercase">
-          Logout
-        </button> 
-        <UpcomingClasses/>
+    <div className="p-6">
+      <h1 className="text-2xl font-bold mb-4">Your Class Timetable</h1>
+      <UpcomingClasses/>
       <WeeklyTimetable/>
     </div>
-  )
+  );
 }
-
-export default page
