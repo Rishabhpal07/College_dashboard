@@ -14,8 +14,8 @@ const AppHeader = () => {
   const navItems = [
     { name: 'Timetable', path: '/dashboard' },
     { name: 'Announcements', path: `/dashboard/${session?.user.Role}/announcements` },
-    { name: 'Announcements', path: '/announcements' },
-    { name: 'Profile', path: '/profile' },
+    { name: 'Recommendation', path: `/dashboard/${session?.user.Role}/recommendation` },
+    { name: 'Map', path: `/dashboard/${session?.user.Role}/map` },
   ]
 
   return (

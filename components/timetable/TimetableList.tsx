@@ -24,7 +24,7 @@ export default function TimetableList({ allowEdit = false }: { allowEdit?: boole
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
       {timetables.map((t) => (
-        <TimetableCard key={t.id} data={t} editable={allowEdit} />
+        <TimetableCard key={t.id} data={t} />
       ))}
     </div>
   );

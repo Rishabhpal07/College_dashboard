@@ -12,7 +12,7 @@ export default function AdminDashboard() {
       <h1 className="text-2xl font-bold mb-6">Admin Timetable Management</h1>
 
       <TimetableForm editId={editId || undefined} onClose={() => setEditId(null)} />
-      <TimetableList allowEdit />
+      <TimetableList  />
       <WeeklyTimetable/>
     </div>
   );
