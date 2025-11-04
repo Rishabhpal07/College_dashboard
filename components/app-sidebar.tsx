@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Calendar, Home, Inbox, LayoutDashboard, Search, Settings, UserRoundPen, User } from "lucide-react";
+import { Calendar, Home, Inbox, LayoutDashboard, Search, Settings, UserRoundPen, User, GraduationCap, Bot, Calendar1, Contact2, LocateIcon, IdCard, Mail } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -45,8 +45,9 @@ export function AppSidebar() {
           />
         </div>
 
-        <SidebarGroup className="gap-4 text-center">
-          <SidebarGroupLabel className="flex flex-col gap-4 items-center">
+        <SidebarGroup className="gap-7 text-center">
+          {session.user.Role=='student' ?
+          <SidebarGroupLabel className="flex flex-col gap-10 items-center">
             <div className="flex items-center gap-2">
               <UserRoundPen />
               <div className="text-lg font-semibold">{session?.user?.Role}</div>
@@ -58,10 +59,56 @@ export function AppSidebar() {
             </div>
 
             <div className="flex items-center gap-2">
-              <User />
+              <GraduationCap />
+              <div className="text-lg font-semibold">{user?.course || "Loading..."}</div>
+            </div>
+            <div className="flex items-center gap-2">
+              <Bot/>
               <div className="text-lg font-semibold">{user?.Branch || "Loading..."}</div>
             </div>
+
+            <div className="flex items-center gap-2">
+              <Calendar1 />
+              <div className="text-lg font-semibold">{user?.Academic_Year || "Loading..."}</div>
+            </div>
+
+
+            <div className="flex items-center gap-2">
+              <Contact2/>
+              <div className="text-lg font-semibold">{user?.Contacts || "Loading..."}</div>
+            </div>
+
+
+            <div className="flex items-center gap-2">
+              <LocateIcon />
+              <div className="text-lg font-semibold">{user?.Address || "Loading..."}</div>
+            </div>
+          </SidebarGroupLabel>:<SidebarGroupLabel className="flex flex-col gap-10 items-center">
+            <div className="flex items-center gap-2">
+              <UserRoundPen />
+              <div className="text-lg font-semibold">{session?.user?.Role}</div>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <User />
+              <div className="text-lg font-semibold">{user?.name || "Loading..."}</div>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <IdCard/>
+              <div className="text-lg font-semibold">{user?.EmployeeId || "Loading..."}</div>
+            </div>
+            <div className="flex items-center gap-2">
+              <Mail/>
+              <div className="text-lg font-semibold">{user?.OfficialEmail || "Loading..."}</div>
+            </div>
+
+            <div className="flex items-center gap-2">
+            <LocateIcon />
+              <div className="text-lg font-semibold">{user?.PermanentAddress || "Loading..."}</div>
+            </div>
           </SidebarGroupLabel>
+       }
 
           <SidebarGroupContent>
             <SidebarMenu className="gap-6">
