@@ -19,7 +19,7 @@ const AppHeader = () => {
   ]
 
   return (
-    <header className="shadow bg-white w-360 py-2 px-6 flex items-center justify-between">
+    <header className="shadow bg-white w-340 py-2 px-6 flex items-center justify-between">
       <div className="flex items-center gap-6">
         <Image src={uniLogo} alt="unilogo" width={100} height={100} />
         <nav className=" flex items-center gap-20 text-gray-700">

@@ -85,8 +85,8 @@ const Login = () => {
             <div className="w-full lg:w-1/2 flex flex-col justify-center items-center py-10 px-6 sm:px-12 bg-white">
                 
                 <div className="w-full max-w-md">
-                    <div className="mb-12">
-                        <Image src={uniLogo} alt="universityLogo" width={250} />
+                    <div className="mb-12 ml-25 flex items-center">
+                        <Image src={uniLogo} alt="universityLogo" width={100}  height={50} className="flex items-center w-md"/>
                     </div>
 
                     {/* Form container */}
@@ -96,7 +96,7 @@ const Login = () => {
                     >
                         {/* Login Id Field */}
                         <div className="flex flex-col w-full">
-                            <label className="text-sm font-medium text-gray-600 mb-1">college Id</label>
+                            <label className="text-md font-bold text-gray-600 mb-1">College Id</label>
                             <input
                                 type={"text"}
                                 placeholder=""
@@ -110,7 +110,7 @@ const Login = () => {
                         
                         {/* Password Field */}
                         <div className="flex flex-col w-full">
-                            <label className="text-sm font-medium text-gray-600 mb-1">Password</label>
+                            <label className="text-md font-bold text-gray-600 mb-1">Password</label>
                             <input
                                 type={"password"}
                                 placeholder=""

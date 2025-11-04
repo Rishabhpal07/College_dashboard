@@ -8,7 +8,7 @@ import { db } from "@/utils/firebaseDb";
 
 export const UpcomingClasses = () => {
   const [timetable, setTimetable] = useState([]);
-  const [loading, setLoading] = useState(true); // for clarity
+  const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,7 +17,7 @@ export const UpcomingClasses = () => {
         console.log("✅ Firestore object:", db);
         const q = query(
           collection(db, "timetables"),
-          where("status", "==", "today") // ✅ make sure your field name is correct
+          where("status", "==", "today") 
         );
 
         const querySnapshot = await getDocs(q);
@@ -32,10 +32,10 @@ export const UpcomingClasses = () => {
           console.log("✅ Document found:", doc.id, doc.data());
           return { id: doc.id, ...doc.data() };
         });
-
+      //@ts-ignore
         setTimetable(data);
       } catch (error) {
-        console.error("❌ Error fetching timetable:", error);
+        console.error(" Error fetching timetable:", error);
       } finally {
         setLoading(false);
       }
@@ -59,6 +59,7 @@ export const UpcomingClasses = () => {
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {timetable.length > 0 ? (
             timetable.map((classItem, idx) => (
+              //@ts-ignore
               <ClassCard key={classItem.id} {...classItem} isUpcoming={idx === 0} />
             ))
           ) : (

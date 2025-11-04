@@ -36,6 +36,7 @@ export default function TimetableForm({ editId, onClose }: { editId?: string; on
 
     if (editId) {
       const ref = doc(db, "timetables", editId);
+      //@ts-ignore
       await updateDoc(ref, formData);
     } else {
       await addDoc(collection(db, "timetables"), formData);

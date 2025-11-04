@@ -35,6 +35,7 @@ export default function AnnouncementForm({ editId, onClose }: { editId?: string;
 
     if (editId) {
       const ref = doc(db, "announcement", editId);
+      //@ts-ignore
       await updateDoc(ref, formData);
     } else {
       await addDoc(collection(db, "announcement"), formData);
