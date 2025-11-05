@@ -82,7 +82,7 @@ export default function CampusMap() {
   return (
     <>
       {/* Map Section */}
-      <div className="w-full h-[70vh] rounded-lg overflow-hidden border border-zinc-200 relative z-0">
+      <div className="w-full h-[60vh] md:h-[70vh] rounded-lg overflow-hidden border border-zinc-200 relative z-0">
         <MapContainer
           crs={CRS.Simple}
           zoom={-1}
@@ -118,8 +118,8 @@ export default function CampusMap() {
       </div>
 
       {show360 && (
-        <div className="fixed inset-0 z-9999 flex items-center justify-center bg-black/80 backdrop-blur-sm">
-          <div className="relative w-[90vw] h-[80vh] rounded-lg overflow-hidden shadow-lg">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+          <div className="relative w-full max-w-6xl h-[70vh] md:h-[80vh] rounded-lg overflow-hidden shadow-lg">
             {/* Close Button */}
             <button
               onClick={() => setShow360(false)}
@@ -135,7 +135,7 @@ export default function CampusMap() {
                   (currentIndex - 1 + locations.length) % locations.length
                 )
               }
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-[10000] bg-white/90 text-black px-3 py-2 rounded-full shadow hover:bg-gray-200"
+              className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-[10000] bg-white/90 text-black px-3 py-2 rounded-full shadow hover:bg-gray-200"
             >
               ◀ Prev
             </button>
@@ -145,7 +145,7 @@ export default function CampusMap() {
               onClick={() =>
                 setCurrentIndex((currentIndex + 1) % locations.length)
               }
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-[10000] bg-white/90 text-black px-3 py-2 rounded-full shadow hover:bg-gray-200"
+              className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-[10000] bg-white/90 text-black px-3 py-2 rounded-full shadow hover:bg-gray-200"
             >
               Next ▶
             </button>

@@ -19,27 +19,28 @@ const AppHeader = () => {
   ]
 
   return (
-    <header className="shadow bg-white w-340 py-2 px-6 flex items-center justify-between">
-      <div className="flex items-center gap-6">
-        <Image src={uniLogo} alt="unilogo" width={100} height={100} className='h-15' />
-        <nav className=" flex items-center gap-20 text-gray-700">
-          {navItems.map((item) => (
-            <Link
-              key={item.path}
-              href={item.path}
-              className={`text-sm font-medium transition-all gapl-10 ${
-                pathname === item.path
-                  ? 'text-blue-600 border-b-2 border-blue-600 pb-1'
-                  : 'hover:text-blue-500'
-              }`}
-            >
-              {item.name}
-            </Link>
-          ))}
-        </nav>
-      </div>
+    <header className="shadow bg-white w-full py-2 px-4 sm:px-6">
+      <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center gap-3 sm:gap-6 min-w-0">
+          <Image src={uniLogo} alt="unilogo" width={80} height={80} className='h-10 w-auto sm:h-12' />
+          <nav className="hidden md:flex items-center gap-10 text-gray-700">
+            {navItems.map((item) => (
+              <Link
+                key={item.path}
+                href={item.path}
+                className={`text-sm font-medium transition-colors ${
+                  pathname === item.path
+                    ? 'text-blue-600 border-b-2 border-blue-600 pb-1'
+                    : 'hover:text-blue-500'
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </nav>
+        </div>
 
-      <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 shrink-0">
         <img
           src={session?.user?.image || '/profile.png'}
           alt="Profile"
@@ -52,7 +53,27 @@ const AppHeader = () => {
         >
           Logout
         </Button>
+        </div>
       </div>
+
+      {/* Mobile nav: horizontal scroll */}
+      <nav className="md:hidden mt-2 -mx-4 px-4 overflow-x-auto no-scrollbar">
+        <div className="flex items-center gap-6 text-gray-700">
+          {navItems.map((item) => (
+            <Link
+              key={item.path}
+              href={item.path}
+              className={`flex-none text-sm font-medium ${
+                pathname === item.path
+                  ? 'text-blue-600 border-b-2 border-blue-600 pb-1'
+                  : 'hover:text-blue-500'
+              }`}
+            >
+              {item.name}
+            </Link>
+          ))}
+        </div>
+      </nav>
     </header>
   )
 }

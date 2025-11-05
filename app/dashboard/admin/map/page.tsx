@@ -1,4 +1,3 @@
-import CampusTourModal from "@/components/map/Campus3D";
 import MapClient from "@/components/map/MapClient";
 
 export default function Home() {

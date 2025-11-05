@@ -1,10 +1,13 @@
 // lib/mongodb.ts
 import mongoose from "mongoose";
 
-const MONGODB_URI = process.env.MONGO_URL as string;
+// Support both MONGO_URL and MONGODB_URI to be flexible across environments
+const MONGODB_URI = (process.env.MONGO_URL || process.env.MONGODB_URI) as string;
 
 if (!MONGODB_URI) {
-  throw new Error(" Please define the MONGODB_URI environment variable inside .env.local");
+  throw new Error(
+    "Missing MongoDB connection string. Please set MONGO_URL or MONGODB_URI in your environment (.env/.env.local)."
+  );
 }
 
 let isConnected = false; // track connection state

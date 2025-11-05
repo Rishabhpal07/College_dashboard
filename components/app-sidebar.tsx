@@ -36,12 +36,12 @@ export function AppSidebar() {
 
   return (
     <Sidebar>
-      <SidebarContent className="flex flex-col items-center p-6">
+      <SidebarContent className="flex flex-col items-center p-4 md:p-6">
         <div className="mb-6">
           <img
             src={session?.user?.image || "/profile.png"}
             alt="Profile"
-            className="rounded-full border w-10 h-13 object-cover"
+            className="rounded-full border w-12 h-12 object-cover"
           />
         </div>
 
