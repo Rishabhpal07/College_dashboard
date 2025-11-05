@@ -68,12 +68,11 @@ const Login = () => {
     return (
         <div className="flex flex-col lg:flex-row w-full min-h-screen">
             <div className="hidden lg:flex lg:w-1/2 bg-slate-900 text-white p-12 relative flex-col justify-center">
-                 <Image src={collegeImg} alt="collegeimg" className="w-full h-auto object-contain" priority />
-                <h2 className="text-3xl xl:text-4xl font-bold mb-6 max-w-md">Powering student-centric education in universities & colleges</h2>
+                 <Image src={collegeImg} alt="collegeimg"/>
+                <h2 className="text-4xl font-bold mb-6 max-w-md">Powering student-centric education in universities & colleges</h2>
                 <p className="text-lg text-slate-200 max-w-lg">
-                    We help universities and colleges of all sizes and streams run better – from admissions to academics, back office to
-                    accreditations, desktop to mobiles – We empower students, faculty and management to collaborate efficiently and use
-                    insights effectively, benchmarking quality education while creating personalized learning experience.
+                The Geneva College Student Dashboard is your one-stop platform to navigate college life effortlessly.
+                From interactive campus maps and personalized recommendations to real-time academic updates, everything you need is now in one place.
                 </p>
 
                 <div className="absolute bottom-12">
@@ -82,11 +81,11 @@ const Login = () => {
                 </div>
             </div>
 
-            <div className="w-full lg:w-1/2 flex flex-col justify-center items-center py-8 px-4 sm:px-8 md:px-12 bg-white">
+            <div className="w-full lg:w-1/2 flex flex-col justify-center items-center py-10 px-6 sm:px-12 bg-white">
                 
                 <div className="w-full max-w-md">
-                    <div className="mb-8 sm:mb-12 flex items-center">
-                        <Image src={uniLogo} alt="universityLogo" width={100}  height={50} className="h-10 w-auto"/>
+                    <div className="mb-12 ml-25 flex items-center">
+                        <Image src={uniLogo} alt="universityLogo" className="flex items-center w-50"/>
                     </div>
 
                     {/* Form container */}
@@ -125,10 +124,10 @@ const Login = () => {
                         {serverErr && (
                             <p className="text-sm text-red-600 text-center font-medium pt-2">{serverErr}</p>
                         )}
-                        <div className=" flex items-center w-full pt-2 sm:pt-4">
+                        <div className=" flex items-center w-full pt-4">
                             <button
                                 type="submit"
-                                className="bg-[#5D7DF3] hover:bg-[#4a67d1] text-white px-6 sm:px-8 py-2.5 rounded-md font-semibold disabled:opacity-70 transition-all  flex items-center gap-2 cursor-pointer w-full sm:w-auto justify-center"
+                                className="bg-[#5D7DF3] hover:bg-[#4a67d1] text-white px-8 py-2.5 rounded-md font-semibold disabled:opacity-70 transition-all  flex items-center gap-2 cursor-pointer"
                                 disabled={isSubmitting}
                             >
                                 {isSubmitting ? "Logging in..." : "LOGIN"}
@@ -137,9 +136,9 @@ const Login = () => {
                         </div>
 
                         {/* Google Sign In Button */}
-                        <div className="flex flex-col items-center w-full gap-4 pt-4 sm:pt-6">
-                            <Button className="p-3 sm:p-4 cursor-pointer w-full sm:w-auto" variant={"outline"} onClick={handleGoogleSignIn}>
-                                <Image src={google} alt="googleImg" className="p-1 sm:p-2 w-6 h-6"/>
+                        <div className="flex flex-col items-center w-full gap-4 pt-6">
+                            <Button className="p-4 cursor-pointer" variant={"outline"} onClick={handleGoogleSignIn}>
+                                <Image src={google} alt="googleImg" className="p-2"/>
                             </Button>
                         </div>
                     </form>
